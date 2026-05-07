@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="telegram-web-app" content="yes">
+  <title>VPN World</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-top">
+        <h1>🌍 VPN World</h1>
+        <span id="server-count" class="server-badge">0 servers</span>
+      </div>
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" id="search" placeholder="Buscar país..." autocomplete="off">
+      </div>
+      <div class="continent-filter">
+        <button class="continent-btn active" data-continent="all">Todos</button>
+        <button class="continent-btn" data-continent="EU">Europa</button>
+        <button class="continent-btn" data-continent="AS">Asia</button>
+        <button class="continent-btn" data-continent="AM">América</button>
+        <button class="continent-btn" data-continent="AF">África</button>
+        <button class="continent-btn" data-continent="OC">Oceanía</button>
+      </div>
+    </header>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-value" id="stat-countries">195</span>
+        <span class="stat-label">Países</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="stat-servers">0</span>
+        <span class="stat-label">Servidores</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="stat-protocols">3</span>
+        <span class="stat-label">Protocolos</span>
+      </div>
+    </div>
+
+    <!-- Country Grid -->
+    <main id="country-grid" class="country-grid"></main>
+
+    <!-- Empty State -->
+    <div id="empty-state" class="empty-state hidden">
+      <span class="empty-icon">🔍</span>
+      <p>No se encontraron países</p>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title-row">
+          <span id="modal-flag" class="modal-flag"></span>
+          <h2 id="modal-title"></h2>
+        </div>
+        <button id="modal-close" class="modal-close">&times;</button>
+      </div>
+      <div id="modal-servers" class="modal-servers"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
